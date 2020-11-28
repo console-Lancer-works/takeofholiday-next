@@ -27,6 +27,11 @@
 }
 html,body{
   font-family:'poppins';
+  background-color: #F9F9F9;
 
+}
+input[type="date"]:not(.has-value):before{
+  color: lightgray;
+  content: attr(placeholder);
 }
 

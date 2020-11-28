@@ -1,17 +1,17 @@
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
+import { Paragraph } from '../../Shared'
 
 const Wrapper=styled.div`
-width:150px;
-height:150px;
-border-radius:12px;
-background-color:#221818;
+
 
 `
-const ServiceCard=()=>{
-    return <Wrapper>
-            I am TourCard
-        </Wrapper>
+const ServiceCard=({icon,text})=>{
+    return <div style={{margin:'10px 0',textAlign:'center'}}>
+            <FontAwesomeIcon icon={icon} size="4x" color="#222222"/>
+         <Paragraph style={{margin:'10px 0',color:'#151515',fontWeight:'bold'}}>{text}</Paragraph>
+        </div>
 }
 
 export default ServiceCard

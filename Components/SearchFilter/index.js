@@ -1,13 +1,14 @@
 import styled from 'styled-components'
-import {Button,Select} from '../../Shared'
+import {Button,Select,Input} from '../../Shared'
 
 const Wrapper=styled.div`
 width:90%;
 padding:30px;
-background-color:white;
+background-color:#151515;
 display:flex;
 justify-content:space-around;
-box-shadow:1px 1px 2px 0px rgb(0,0,0,0.5);
+align-items:center;
+box-shadow:1px 1px 6px 0px #151515;
 border-radius:12px;
 flex-flow:wrap;
 position:absolute;
@@ -27,12 +28,7 @@ const SearchFilter=()=>{
           <option>Female</option>
           <option>Other</option>
           </Select>
-          <Select width="200px">
-          <option selected disabled>Tours Dates</option>
-          <option>Male</option>
-          <option>Female</option>
-          <option>Other</option>
-          </Select>
+          <Input type="date"/>
           <Button width="200px">Search</Button>
         </Wrapper>
 }
