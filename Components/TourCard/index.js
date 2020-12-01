@@ -14,22 +14,23 @@ box-shadow:1px 1px 6px 0px #151515;
 const ImageBox=styled.div`
 
 width:100%;
+height:200px;
 border-radius:12px;
 overflow:hidden;
 `
-const TourCard=()=>{
+const TourCard=({data})=>{
     return <Wrapper>
              <ImageBox>
-                  <img src={'static/assests/cover.jpg'} width="100%" height="100%"/>
+                  <img src={data.imageUrl[0]} width="100%" height="100%"/>
             </ImageBox>
             <div style={{padding:'5px 10px',position:'relative'}}>
-                <Title>Moscow New tour</Title>
+                <Title>{data.title}</Title>
               
-                <Paragraph style={{margin:'10px 0'}}>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,</Paragraph>
+                <Paragraph style={{margin:'10px 0'}}>{data.shortDesc.slice(0,60)}</Paragraph>
                 
-                <Paragraph color={"#FEC02F"}>14 night/15 days</Paragraph>
+                <Paragraph color={"#FEC02F"}>{data.nights} night/{data.days} days</Paragraph>
                 <Stars/>
-                <PriceTag/>
+               {/*  <PriceTag/> */}
             </div>
         </Wrapper>
 }

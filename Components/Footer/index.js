@@ -1,6 +1,8 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
+import Link from 'next/link'
+
 import { Paragraph,LogoBox, Title } from '../../Shared'
 import {faFacebook,faInstagram,faTwitter,faWhatsapp} from '@fortawesome/free-brands-svg-icons'
 import {faAt, faPhoneAlt,faEnvelope} from '@fortawesome/free-solid-svg-icons'
@@ -53,10 +55,10 @@ const Footer=()=>{
                     <Title color="#FEC02F" >Information's</Title>
                     <div style={{marginTop:'15px'}}>
                     
-                    <Paragraph>Services</Paragraph>
-                    <Paragraph>About us</Paragraph>
+                    <Link href=""><Paragraph>Services</Paragraph></Link>
+                    <Link href=""><Paragraph>About us</Paragraph></Link>
                     <Paragraph>Contact us</Paragraph>
-                    <Paragraph>Term and Condition</Paragraph>
+                    <Paragraph>Term &amp; Condition</Paragraph>
                     </div>
                     
                 </Box>

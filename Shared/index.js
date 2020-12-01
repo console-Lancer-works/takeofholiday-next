@@ -46,7 +46,7 @@ ${props=>props.style}
 
 export const Title=styled.p`
 color:${props=>props.color||'#F9f9f9'};
-font-size:16px;
+font-size:${props=>props.size||'16px'};
 font-weight:bold;
 letter-spacing:2px;
 ${props=>props.style}
@@ -61,11 +61,11 @@ ${props=>props.style};
 
 export const Stars=()=>{
         return <div style={{display:'flex',margin:'15px 0'}}>
-                    <FontAwesomeIcon icon={faStar} color="#FEC02F"/>
-                    <FontAwesomeIcon icon={faStar} color="#FEC02F"/>
-                    <FontAwesomeIcon icon={faStar} color="#FEC02F"/>
-                    <FontAwesomeIcon icon={faStar} color="#FEC02F"/>
-                    <FontAwesomeIcon icon={faStar} color="#FEC02F"/>
+                    <FontAwesomeIcon icon={faStar} color="#FEC02F" style={{margin:'0 2px'}}/>
+                    <FontAwesomeIcon icon={faStar} color="#FEC02F" style={{margin:'0 2px'}}/>
+                    <FontAwesomeIcon icon={faStar} color="#FEC02F" style={{margin:'0 2px'}}/>
+                    <FontAwesomeIcon icon={faStar} color="#FEC02F" style={{margin:'0 2px'}}/>
+                    <FontAwesomeIcon icon={faStar} color="#FEC02F" style={{margin:'0 2px'}}/>
 
                  </div>
 }

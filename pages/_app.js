@@ -3,9 +3,9 @@ import Head from 'next/head'
 
 function MyApp({ Component, pageProps }) {
   return <>
-          <Head>
+          {/* <Head>
             <title>My title</title>
-          </Head>
+          </Head> */}
       
           <Component {...pageProps} />
       

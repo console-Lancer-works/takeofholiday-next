@@ -71,43 +71,56 @@ position:relative;
     cursor:pointer;
 }
 `
-export default function Home() {
+export default function Home({tours}) {
+  const scrollHandler=(e,d)=>{
+    console.log(e)
+    if(d=='r'){
+      e.target.previousSibling.scrollBy(280,0);
+    }else{
+      e.target.nextSibling.scrollBy(-280,0);
+    }
+   
+    
+  }
+  const GalleryTours=[{imageUrl:"https://firebasestorage.googleapis.com/v0/b/takeoffholdiays.appspot.com/o/WhatsApp%20Image%202020-12-01%20at%2010.22.36%20AM.jpeg?alt=media&token=5eaac419-450d-4821-9902-c8a3e6b7223c"},
+                      {imageUrl:"https://firebasestorage.googleapis.com/v0/b/takeoffholdiays.appspot.com/o/WhatsApp%20Image%202020-12-01%20at%2010.22.35%20AM.jpeg?alt=media&token=5955cbea-920f-456c-8012-c42a2db08e93"},
+                    {imageUrl:"https://firebasestorage.googleapis.com/v0/b/takeoffholdiays.appspot.com/o/WhatsApp%20Image%202020-12-01%20at%2010.22.34%20AM.jpeg?alt=media&token=263f2e6a-f309-4913-9bd5-964a6168e393"}]
   return <HOC>
       <div style={{height:'88vh',position:'relative',display:'flex',justifyContent:'center',marginBottom:'80px'}}>
-        <img src={'/static/assests/cover.jpg'} width="100%" height="100%"/>
+        <img src={'/static/assests/cover.jpeg'} width="100%" height="100%"/>
+       {/*  <Heading style={{position:'absolute'}}>Take A chill Pill</Heading> */}
         <SearchFilter/>  
       </div>
       <AreaWrapper>
             <CardWrapper>
               <Heading>New Tours</Heading>
               <CardBox>
-                  <TourCard/>
-                  <TourCard/>
-                  <TourCard/>
-                  <TourCard/>
+                {
+                  tours.map((tour,i)=>{
+                    if(tour.category==2){
+                      return   <TourCard data={tour} key={i}/>
+                    }
+                  })
+                }
+                
+                 
 
               </CardBox>
             </CardWrapper>
             <CardWrapper>
-              <Heading>Popular Tours</Heading>
+              <Heading>Kerala Tours</Heading>
               <CardBox>
-                  <TourCard/>
-                  <TourCard/>
-                  <TourCard/>
-                  <TourCard/>
+              {
+                  tours.map((tour,i)=>{
+                    if(tour.category==1){
+                      return   <TourCard data={tour} key={i}/>
+                    }
+                  })
+                }
 
               </CardBox>
             </CardWrapper>
-            <CardWrapper>
-              <Heading>Offers Tours</Heading>
-              <CardBox>
-                  <TourCard/>
-                  <TourCard/>
-                  <TourCard/>
-                  <TourCard/>
-
-              </CardBox>
-            </CardWrapper>
+            
       </AreaWrapper>
       <AreaWrapper>
             <CardWrapper>
@@ -145,7 +158,7 @@ export default function Home() {
                 </div>
                 </div>
                 <ImageBox left="20px">
-                  <img src={'static/assests/cover.jpg'} width="100%" height="100%"/>
+                  <img src={'static/assests/why.png'} width="100%" height="100%"/>
                 </ImageBox>
               </div>
               
@@ -156,20 +169,21 @@ export default function Home() {
       <CardWrapper>
         <Heading>Gallery</Heading>
         <CardBox>
-          <Gallery>
-            <FontAwesomeIcon icon={faAngleLeft} size="2x" className="IconsL" color="#151515"  />
-            <SlidingGallery/>
-            <FontAwesomeIcon icon={faAngleRight} size="2x" className="IconsR" color="#151515"/>
+          <Gallery >
+            <FontAwesomeIcon icon={faAngleLeft} size="2x" className="IconsL" color="#151515" onClick={(e)=>scrollHandler(e,'l')} />
+            <SlidingGallery tour={GalleryTours} start={0} end={4}/>
+            <FontAwesomeIcon icon={faAngleRight} size="2x" className="IconsR" color="#151515" onClick={(e)=>scrollHandler(e,'r')}/>
           </Gallery>
           <Gallery>
-            <FontAwesomeIcon icon={faAngleLeft} size="2x" className="IconsL" color="#151515" />
-            <SlidingGallery/>
-            <FontAwesomeIcon icon={faAngleRight} size="2x" className="IconsR" color="#151515"/>
+            <FontAwesomeIcon icon={faAngleLeft} size="2x" className="IconsL" color="#151515" onClick={(e)=>scrollHandler(e,'l')} />
+            <SlidingGallery tour={tours} start={0} end={4}/>
+            <FontAwesomeIcon icon={faAngleRight} size="2x" className="IconsR" color="#151515" onClick={(e)=>scrollHandler(e,'r')}/>
+           
           </Gallery>
           <Gallery>
-            <FontAwesomeIcon icon={faAngleLeft} size="2x" className="IconsL" color="#151515" />
-            <SlidingGallery/>
-            <FontAwesomeIcon icon={faAngleRight} size="2x" className="IconsR" color="#151515"/>
+            <FontAwesomeIcon icon={faAngleLeft} size="2x" className="IconsL" color="#151515" onClick={(e)=>scrollHandler(e,'l')} />
+            <SlidingGallery tour={tours} start={4} end={9}/>
+            <FontAwesomeIcon icon={faAngleRight} size="2x" className="IconsR" color="#151515" onClick={(e)=>scrollHandler(e,'r')}/>
           </Gallery>
 
         </CardBox>
@@ -179,4 +193,13 @@ export default function Home() {
    
     </HOC>
   
+}
+
+Home.getInitialProps=async (context)=>{
+  const response=await fetch('http://localhost:3000/apis/tour/alltours');
+  const data=await response.json();
+  const tours=data.tours
+
+
+  return {tours:tours}
 }

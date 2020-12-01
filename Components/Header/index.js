@@ -1,13 +1,14 @@
 import React,{useState} from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
+import {useRouter} from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars,faTimes } from '@fortawesome/free-solid-svg-icons'
 import {LogoBox} from '../../Shared'
 
 const Wrapper=styled.div`
 
-position:absolute;
+position:fixed;
 background-color:#151515;
 top:0;
 left:0;
@@ -78,6 +79,7 @@ display:inline;
 `
 const Header=()=>{
     const [show,setShow]=useState(false)
+    const route=useRouter();
     return <Wrapper show={show}>
         <MainWrapper>
             <LogoBox>
@@ -89,11 +91,11 @@ const Header=()=>{
        
                 <FontAwesomeIcon icon={show?faTimes:faBars} color="#DCDCDC" size="2x" className="Icons" onClick={()=>setShow(!show)}/>
                 <ul>
-                    <Li active={1}><Link href="/">Home</Link></Li>
-                    <Li><Link href="/tour">Tours</Link></Li>
-                    <Li><Link href="destination">Destination</Link></Li>
-                    <Li><Link href="gallery">Gallery</Link></Li>
-                    <Li><Link href="about">About us</Link></Li>
+                    <Li active={route.pathname==='/'}><Link href="/">Home</Link></Li>
+                   {/*  <Li active={route.pathname==='/tour'}><Link href="/tour">Tours</Link></Li>
+                    <Li active={route.pathname==='/destination'}><Link href="destination">Destination</Link></Li>
+                    <Li active={route.pathname==='/gallery'}><Link href="gallery">Gallery</Link></Li> */}
+                    <Li active={route.pathname==='/about'}><Link href="about">About us</Link></Li>
                 </ul>
             </NavBar>
             </MainWrapper>

@@ -20,15 +20,19 @@ box-shadow:1px 1px 6px 0px #151515;
   }
 
 `
-const SlidingGallery=()=>{
+const SlidingGallery=({tour,start,end})=>{
     return <Wrapper>
       
-     
+        {
+          tour.map((tour,i)=>{
+            if(i>=start && i<end){
+              return <img src={tour.imageUrl} width="100%" height="100%" key={i}/>
+
+            }
+          })
+        }
          
-            <img src={'static/assests/cover.jpg'} width="100%" height="100%"/>
-            <img src={'static/assests/cover.jpg'} width="100%" height="100%"/>
-            <img src={'static/assests/cover.jpg'} width="100%" height="100%"/>
-            <img src={'static/assests/cover.jpg'} width="100%" height="100%"/>
+           
        
             
        

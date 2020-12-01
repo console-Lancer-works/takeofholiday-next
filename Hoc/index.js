@@ -7,7 +7,6 @@ margin:0 auto;
 width:100%;
 position:relative;
 padding-top:100px;
-
 background:#f9f9f9;
 `
 const HOC=({children,styles})=>{
