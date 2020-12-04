@@ -1,4 +1,4 @@
 module.exports = {
-    MONGOURI:"mongodb+srv://vansh:Vansh1067@cluster0.coxdh.mongodb.net/takeoffholidays?retryWrites=true&w=majority",
+    MONGOURI:"",//ADD MongoLink
     JWT_SECRET: "dsgdbsdfzsafgdfv",
   };
