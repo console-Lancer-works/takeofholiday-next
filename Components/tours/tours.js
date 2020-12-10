@@ -409,9 +409,11 @@ const Tours = () => {
         <div className="panel">
           <p style={{ padding: "15px" }}> Results:12</p>
           <div style={{ width: "50%" }}>
-            <button className="btn">New Tours</button>
-            <button className="btn">Popular Tours</button>
-            <button className="btn">Azerbaijan Tours</button>
+            <button className="btn">Information</button>
+            <button className="btn">Tour Map</button>
+            <button className="btn">Location</button>
+            <button className="btn">Gallery</button>
+            <button className="btn">Reviews</button>
           </div>
         </div>
         <div
