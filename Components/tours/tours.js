@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, setState } from "react";
 import Tourcard from "../TourCard/index";
 import { faAlignJustify } from "@fortawesome/free-solid-svg-icons";
 const Tours = () => {
+  const [panel, setPanel] = useState("Information");
   return (
     <div className="wrap">
       <div className="floatleft">
@@ -409,11 +410,21 @@ const Tours = () => {
         <div className="panel">
           <p style={{ padding: "15px" }}> Results:12</p>
           <div style={{ width: "50%" }}>
-            <button className="btn">Information</button>
-            <button className="btn">Tour Map</button>
-            <button className="btn">Location</button>
-            <button className="btn">Gallery</button>
-            <button className="btn">Reviews</button>
+            <button className="btn" onClick={() => setPanel("Information")}>
+              Information
+            </button>
+            <button className="btn" onClick={() => setPanel("Tour Map")}>
+              Tour Map
+            </button>
+            <button className="btn" onClick={() => setPanel("Location")}>
+              Location
+            </button>
+            <button className="btn" onClick={() => setPanel("Gallery")}>
+              Gallery
+            </button>
+            <button className="btn" onClick={() => setPanel("Reviews")}>
+              Reviews
+            </button>
           </div>
         </div>
         <div
