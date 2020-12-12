@@ -82,7 +82,124 @@ const Subprogressbar = styled.div`
   margin-bottom: 5%;
 `;
 
-const Tag = styled.div``;
+const UL = styled.ul`
+  height: 500px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+`;
+const Li = styled.li`
+  & {
+    background: green;
+    border-radius: 20px;
+    width: 10px;
+    height: 10px;
+    z-index: 1;
+    position: relative;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    background: yellow;
+    width: 2px;
+    height: 100vh;
+  }
+`;
+
+const EachReview = styled.div`
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  padding: 25px 20px 15px 20px;
+`;
+const UserContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+const UserImage = styled.img``;
+const UserInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+`;
+const UserName = styled.p`
+  font-family: SFUIDisplay-Regular;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.19;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  margin-bottom: 5px;
+`;
+const UserProffession = styled.p`
+  font-family: SFUIDisplay-Regular;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: left;
+  color: #6b737d;
+  margin: 0;
+`;
+const ReviewStatusContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+const ReviewStatusReachout = styled.p`
+  font-family: SFUIDisplay-Regular;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  text-align: right;
+  color: #30aabc;
+  margin: 0;
+`;
+
+const DotsContainer = styled.div`
+  background: #fff;
+  position: relative;
+  height: 20px;
+  margin: 0 10px 0 0;
+  text-align: left;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+`;
+
+const Dot = styled.div`
+  position: relative;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color};
+  /*display: inline-block; */
+  float: left;
+  z-index: 2;
+  margin-right: 10px;
+  &:last-of-type {
+    margin-right: 0;
+  }
+`;
 export default function TourDetails() {
   const [panel, setPanel] = useState("Information");
   return (
@@ -213,27 +330,27 @@ export default function TourDetails() {
                   <div style={{ marginLeft: "4%", width: "80%" }}>
                     <Progressbar>
                       <Subprogressbar style={{ width: "30%" }}>
-                        <span id="s">15</span>
+                        <span style={{ paddingLeft: "70px" }}>15</span>
                       </Subprogressbar>
                     </Progressbar>
                     <Progressbar>
                       <Subprogressbar style={{ width: "40%" }}>
-                        <span id="s">15</span>
+                        <span style={{ paddingLeft: "100px" }}>15</span>
                       </Subprogressbar>
                     </Progressbar>
                     <Progressbar>
                       <Subprogressbar style={{ width: "50%" }}>
-                        <span id="s">15</span>
+                        <span style={{ paddingLeft: "140px" }}>15</span>
                       </Subprogressbar>
                     </Progressbar>
                     <Progressbar>
                       <Subprogressbar style={{ width: "60%" }}>
-                        <span id="s">15</span>
+                        <span style={{ paddingLeft: "70px" }}>15</span>
                       </Subprogressbar>
                     </Progressbar>
                     <Progressbar>
                       <Subprogressbar style={{ width: "30%" }}>
-                        <span id="s">15</span>
+                        <span style={{ paddingLeft: "70px" }}>15</span>
                       </Subprogressbar>
                     </Progressbar>
                   </div>
@@ -331,6 +448,68 @@ export default function TourDetails() {
                 </div>
                 <div>
                   <Img src="https://www.ox.ac.uk/sites/files/oxford/styles/ow_medium_feature/s3/field/field_image_main/Aliens.jpg?itok=kfbiuwSv" />
+                </div>
+              </>
+            ) : null}
+
+            {panel === "Tour" ? (
+              <>
+                <div
+                  style={{
+                    width: "auto",
+                  }}
+                >
+                  <ul>
+                    <li>
+                      <p>Day 1: Arrival</p>
+                      <div style={{ display: "flex", alignItems: "center" }}>
+                        <img
+                          style={{
+                            height: "120px",
+                            width: "230px",
+                            marginTop: "8%",
+                            marginBottom: "8%",
+                            marginRight: "15%",
+                          }}
+                          src="https://www.ox.ac.uk/sites/files/oxford/styles/ow_medium_feature/s3/field/field_image_main/Aliens.jpg?itok=kfbiuwSv"
+                        />
+                        <div
+                          style={{
+                            width: "70%",
+                            height: "auto",
+                            paddingLeft: "1%",
+                            paddingRight: "1%",
+                            paddingTop: "1%",
+                            paddingBottom: "1%",
+                            wordWrap: "break-word",
+                          }}
+                        >
+                          <p>
+                            Allow long words to be able to break and wrap onto
+                            the next line:Allow long words to be able to break
+                            and wrap onto the next line:Allow long words to be
+                            able to break and wrap onto the next
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li style={{ marginBottom: "8%" }}>
+                      {" "}
+                      <p>Day 2: Arrival</p>
+                    </li>
+                    <li style={{ marginBottom: "8%" }}>
+                      {" "}
+                      <p>Day 3: Arrival</p>
+                    </li>
+                    <li style={{ marginBottom: "8%" }}>
+                      {" "}
+                      <p>Day 4: Arrival</p>
+                    </li>
+                    <li>
+                      {" "}
+                      <p>Day 5: Arrival</p>
+                    </li>
+                  </ul>
                 </div>
               </>
             ) : null}

@@ -2,7 +2,7 @@ import React, { useState, setState } from "react";
 import Tourcard from "../TourCard/index";
 import { faAlignJustify } from "@fortawesome/free-solid-svg-icons";
 const Tours = () => {
-  const [panel, setPanel] = useState("Information");
+  
   return (
     <div className="wrap">
       <div className="floatleft">

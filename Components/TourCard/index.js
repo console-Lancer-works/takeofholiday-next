@@ -32,7 +32,7 @@ const TourCard = ({ data }) => {
         <Paragraph style={{ margin: "10px 0" }}>yash</Paragraph>
 
         <Paragraph color={"#FEC02F"}>4 night/3 days</Paragraph>
-        <Stars />
+        <Stars/>
         {/*  <PriceTag/> */}
       </div>
     </Wrapper>
