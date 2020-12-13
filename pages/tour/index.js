@@ -23,10 +23,11 @@ const RightWrapper = styled.div`
   width: 82%;
 `;
 const Categories = styled.div`
-display:flex,
-flexDirection:column,
-alignItems:center,
-overflow: hidden,
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
 `;
 const Select = styled.select`
   display: block;

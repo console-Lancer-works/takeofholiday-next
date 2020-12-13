@@ -72,6 +72,36 @@ const Ul = styled.div`
   display: flex;
 `;
 
+const Ol = styled.ul`
+  height: 10rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &.progress-bar li {
+    background: green;
+    border-radius: 20px;
+    width: 10px;
+    height: 10px;
+    z-index: 1;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 5px;
+      background: yellow;
+      width: 2px;
+      height: 3rem;
+    }
+  }
+`;
+
 const Progressbar = styled.div`
   background-color: whitesmoke;
 `;
@@ -198,6 +228,39 @@ const Dot = styled.div`
   margin-right: 10px;
   &:last-of-type {
     margin-right: 0;
+  }
+`;
+
+const Ll = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    background: red;
+    position: absolute;
+    left: 3px;
+    top: 5px;
+    height: calc(100% - 10px);
+  }
+  li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 15px;
+    &:before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: red;
+      position: absolute;
+      left: 0;
+      top: 5px;
+      border-radius: 10px;
+    }
   }
 `;
 export default function TourDetails() {
@@ -459,7 +522,7 @@ export default function TourDetails() {
                     width: "auto",
                   }}
                 >
-                  <ul>
+                  <Ll>
                     <li>
                       <p>Day 1: Arrival</p>
                       <div style={{ display: "flex", alignItems: "center" }}>
@@ -509,7 +572,7 @@ export default function TourDetails() {
                       {" "}
                       <p>Day 5: Arrival</p>
                     </li>
-                  </ul>
+                  </Ll>
                 </div>
               </>
             ) : null}
